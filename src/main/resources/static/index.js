@@ -46,7 +46,7 @@ const renderAnime = ({ id, title, genre, episodes, season }) => {
     cardBody.appendChild(animeFooter);
 
     const deleteAnimeButton = document.createElement("button");
-    deleteAnimeButton.className = "card-link";
+    deleteAnimeButton.className = "card-link btn-primary";
     deleteAnimeButton.innerText = "Delete";
     deleteAnimeButton.addEventListener("click", function () {
         deleteAnime(id);
