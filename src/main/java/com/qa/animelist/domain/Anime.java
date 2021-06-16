@@ -5,14 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Anime {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column(nullable = false)
 	private String title;
@@ -24,27 +23,24 @@ public class Anime {
 	private Long episodes;
 	
 	@Column
-	private Long seasons;
-	
-	@ManyToOne
-	private WatchList watchlist;
+	private Long season;
 	
 	public Anime() {}
 
-	public Anime(Long id, String title, String genre, Long episodes, Long seasons) {
+	public Anime(Integer id, String title, String genre, Long episodes, Long season) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.genre = genre;
 		this.episodes = episodes;
-		this.seasons = seasons;
+		this.season = season;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -72,18 +68,18 @@ public class Anime {
 		this.episodes = episodes;
 	}
 
-	public Long getSeasons() {
-		return seasons;
+	public Long getSeason() {
+		return season;
 	}
 
-	public void setSeasons(Long seasons) {
-		this.seasons = seasons;
+	public void setSeason(Long season) {
+		this.season = season;
 	}
 
 	@Override
 	public String toString() {
-		return "Anime [id=" + id + ", title=" + title + ", genre=" + genre + ", episodes=" + episodes + ", seasons="
-				+ seasons + "]";
+		return "Anime [id=" + id + ", title=" + title + ", genre=" + genre + ", episodes=" + episodes + ", season="
+				+ season + "]";
 	}
 	
 	
