@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.animelist.domain.Anime;
+import com.qa.animelist.dto.AnimeDTO;
 import com.qa.animelist.service.AnimeListService;
 
 @RestController
@@ -27,17 +28,17 @@ public class AnimeListController {
 	}
 	
 	@PostMapping("/create")
-	public String createAnime(@RequestBody Anime anime) {
+	public AnimeDTO createAnime(@RequestBody Anime anime) {
 		return this.service.createAnime(anime);
 	}
 	
 	@DeleteMapping("/remove/{id}")
-	public String delete(@PathVariable int id) {
+	public boolean delete(@PathVariable int id) {
 		return this.service.delete(id);
 	}
 	
 	@GetMapping("/")
-	public List<Anime> getAnimeList(){
+	public List<AnimeDTO> getAnimeList(){
 		return this.service.getAnimeList();
 	}
 }

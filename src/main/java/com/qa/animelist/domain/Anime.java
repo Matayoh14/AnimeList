@@ -1,10 +1,16 @@
 package com.qa.animelist.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Anime {
@@ -15,6 +21,7 @@ public class Anime {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	/*
 	static{
 		idGen = -1;
 	}
@@ -22,6 +29,7 @@ public class Anime {
 	{
 		id = idGen++;
 	}
+	*/
 	
 	@Column(nullable = false)
 	private String title;
@@ -34,6 +42,10 @@ public class Anime {
 	
 	@Column
 	private Long season;
+	
+	@OneToMany(mappedBy = "anime")
+	@JsonIgnore
+	private List<Episode> episodeList = new ArrayList<>();
 	
 	public Anime() {}
 
@@ -92,6 +104,16 @@ public class Anime {
 
 	public void setSeason(Long season) {
 		this.season = season;
+	}
+	
+	
+
+	public List<Episode> getEpisodeList() {
+		return episodeList;
+	}
+
+	public void setEpisodeList(List<Episode> episodeList) {
+		this.episodeList = episodeList;
 	}
 
 	@Override
