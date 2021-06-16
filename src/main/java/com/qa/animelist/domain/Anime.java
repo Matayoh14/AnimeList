@@ -8,10 +8,20 @@ import javax.persistence.Id;
 
 @Entity
 public class Anime {
-
+	
+	static Integer idGen;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	static{
+		idGen = -1;
+	}
+	
+	{
+		id = idGen++;
+	}
 	
 	@Column(nullable = false)
 	private String title;
@@ -27,13 +37,21 @@ public class Anime {
 	
 	public Anime() {}
 
-	public Anime(Integer id, String title, String genre, Long episodes, Long season) {
+	public Anime(String title, String genre, Long episodes, Long season) {
 		super();
-		this.id = id;
 		this.title = title;
 		this.genre = genre;
 		this.episodes = episodes;
 		this.season = season;
+	}
+	
+
+	public static Integer getIdGen() {
+		return idGen;
+	}
+
+	public static void setIdGen(Integer idGen) {
+		Anime.idGen = idGen;
 	}
 
 	public Integer getId() {

@@ -20,6 +20,13 @@ public class AnimeListService {
 	
 	public String delete(int id) {
 		this.animelist.remove(id);
+		Anime.setIdGen(Anime.getIdGen()-1);
+		for(Anime anime : animelist) {
+			if(anime.getId() > id) {
+				anime.setId(anime.getId()-1);	
+			}
+			
+		}
 		return this.animelist.toString();
 	}
 	

@@ -45,7 +45,7 @@ const renderAnime = ({ id, title, genre, episodes, season }) => {
     animeFooter.className = "card-footer";
     cardBody.appendChild(animeFooter);
 
-    const deleteAnimeButton = document.createElement("a");
+    const deleteAnimeButton = document.createElement("button");
     deleteAnimeButton.className = "card-link";
     deleteAnimeButton.innerText = "Delete";
     deleteAnimeButton.addEventListener("click", function () {
@@ -85,6 +85,6 @@ document.getElementById("createForm").addEventListener('submit', function (event
 });
 
 const deleteAnime = async (id) => {
-    const res = await axious.delete(`/animelist/remove/${id}`);
+    const res = await axios.delete(`/animelist/remove/${id}`);
     getAnime();
 };
