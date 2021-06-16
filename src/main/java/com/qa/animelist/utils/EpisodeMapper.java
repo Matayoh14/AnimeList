@@ -16,6 +16,7 @@ public class EpisodeMapper implements Mapper<Episode, EpisodeDTO> {
 		dto.setNumber(episode.getNumber());
 		dto.setDesc(episode.getDesc());
 		dto.setTitle(episode.getTitle());
+		dto.setAnimeTitle(episode.getAnimeTitle());
 		
 		return dto;
 	}

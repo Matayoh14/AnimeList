@@ -13,6 +13,8 @@ public class Episode {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	private String animeTitle;
+	
 	private Integer number;
 	
 	private String title;
@@ -24,10 +26,10 @@ public class Episode {
 	
 	public Episode() {}
 
-	public Episode(Integer number, Anime anime) {
+	public Episode(Integer number, String animeTitle) {
 		super();
 		this.number = number;
-		this.anime = anime;
+		this.animeTitle = animeTitle;
 	}
 
 	public Integer getId() {
@@ -70,9 +72,17 @@ public class Episode {
 		this.anime = anime;
 	}
 
+	public String getAnimeTitle() {
+		return animeTitle;
+	}
+
+	public void setAnimeId(String animeTitle) {
+		this.animeTitle = animeTitle;
+	}
+
 	@Override
 	public String toString() {
-		return "Episode [number=" + number + ", title=" + title + ", desc=" + desc + "]";
+		return "Episode [number=" + number + ", animeTitle=" + animeTitle + ", title=" + title + ", desc=" + desc + "]";
 	}
 	
 	

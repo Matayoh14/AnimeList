@@ -4,6 +4,8 @@ public class EpisodeDTO {
 
 	private Integer id;
 	
+	private String animeTitle;
+	
 	private String title;
 	
 	private Integer number;
@@ -17,9 +19,10 @@ public class EpisodeDTO {
 		this.number = number;
 	}
 
-	public EpisodeDTO(Integer id, String title, Integer number, String desc) {
+	public EpisodeDTO(Integer id, String animeTitle, String title, Integer number, String desc) {
 		super();
 		this.id = id;
+		this.animeTitle = animeTitle;
 		this.title = title;
 		this.number = number;
 		this.desc = desc;
@@ -31,6 +34,14 @@ public class EpisodeDTO {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getAnimeTitle() {
+		return animeTitle;
+	}
+
+	public void setAnimeTitle(String animeTitle) {
+		this.animeTitle = animeTitle;
 	}
 
 	public String getTitle() {
