@@ -36,6 +36,15 @@ public class Anime {
 	private Long season;
 	
 	public Anime() {}
+	
+	public Anime(Integer id, String title, String genre, Long episodes, Long season) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.genre = genre;
+		this.episodes = episodes;
+		this.season = season;
+	}
 
 	public Anime(String title, String genre, Long episodes, Long season) {
 		super();
