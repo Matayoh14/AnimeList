@@ -38,7 +38,7 @@ public class AnimeMapper implements Mapper<Anime, AnimeDTO> {
 	
 	@Override
 	public Anime mapFromDTO(AnimeDTO dto) {
-		
-		return null;
+		Anime mapped = new Anime(dto.getId(),dto.getTitle(),dto.getGenre(),dto.getEpisodes(),dto.getSeason());
+		return mapped;
 	}
 }

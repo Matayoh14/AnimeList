@@ -15,21 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Anime {
 	
-	static Integer idGen;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	/*
-	static{
-		idGen = -1;
-	}
-	
-	{
-		id = idGen++;
-	}
-	*/
 	
 	@Column(nullable = false)
 	private String title;
@@ -64,15 +52,6 @@ public class Anime {
 		this.genre = genre;
 		this.episodes = episodes;
 		this.season = season;
-	}
-	
-
-	public static Integer getIdGen() {
-		return idGen;
-	}
-
-	public static void setIdGen(Integer idGen) {
-		Anime.idGen = idGen;
 	}
 
 	public Integer getId() {
@@ -130,6 +109,56 @@ public class Anime {
 		return "Anime [id=" + id + ", title=" + title + ", genre=" + genre + ", episodes=" + episodes + ", season="
 				+ season + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((episodes == null) ? 0 : episodes.hashCode());
+		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((season == null) ? 0 : season.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Anime other = (Anime) obj;
+		if (episodes == null) {
+			if (other.episodes != null)
+				return false;
+		} else if (!episodes.equals(other.episodes))
+			return false;
+		if (genre == null) {
+			if (other.genre != null)
+				return false;
+		} else if (!genre.equals(other.genre))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (season == null) {
+			if (other.season != null)
+				return false;
+		} else if (!season.equals(other.season))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+	
 	
 	
 }

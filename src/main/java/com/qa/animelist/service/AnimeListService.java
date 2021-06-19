@@ -31,19 +31,6 @@ public class AnimeListService {
 		return this.mapper.mapToDTO(saved);
 	}
 	
-	/*
-	public String delete(int id) {
-		this.animelist.remove(id);
-		Anime.setIdGen(Anime.getIdGen()-1);
-		for(Anime anime : animelist) {
-			if(anime.getId() > id) {
-				anime.setId(anime.getId()-1);	
-			}
-			
-		}
-		return this.animelist.toString();
-	} */
-	
 	public boolean delete(int id) {
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
@@ -64,5 +51,17 @@ public class AnimeListService {
 			dtos.add(dto);
 		}
 		return dtos;
+	}
+	
+	public AnimeDTO updateAnime(Integer id, Anime update) {
+		Anime toUpdate = this.repo.findById(id).orElseThrow(() -> new EntityNotFoundException());
+		
+		toUpdate.setTitle(update.getTitle());
+		toUpdate.setGenre(update.getGenre());
+		toUpdate.setEpisodes(update.getEpisodes());
+		toUpdate.setSeason(update.getSeason());
+		
+		Anime updated = this.repo.save(toUpdate);
+		return this.mapper.mapToDTO(updated);
 	}
 }

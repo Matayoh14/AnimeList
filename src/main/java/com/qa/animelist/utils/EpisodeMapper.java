@@ -23,7 +23,7 @@ public class EpisodeMapper implements Mapper<Episode, EpisodeDTO> {
 	
 	@Override
 	public Episode mapFromDTO(EpisodeDTO dto) {
-		
-		return null;
+		Episode mapped = new Episode(dto.getId(), dto.getAnimeTitle(), dto.getNumber(), dto.getTitle(), dto.getDesc());
+		return mapped;
 	}
 }
