@@ -1,1 +1,6 @@
-INSERT INTO anime (title, genre, episodes, season) values ('Re:Zero', 'Isekai', 13, 1);
+INSERT INTO anime (id, title, genre, episodes, season) values (1, 'Re:Zero', 'Isekai', 13, 1);
+
+
+
+
+
