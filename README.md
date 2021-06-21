@@ -1,5 +1,5 @@
-Coverage: 75%
-# Hobby Web Application Project - AnimeList
+Coverage: 62%
+# Hobby Project - AnimeList
 
 This project is a simple full-stack web application, utilizing the Spring API to connect the front-end and back-end together.
 
@@ -24,8 +24,7 @@ Run the installers for the aforementioned software in the prerequisites section.
 
 ## Running the Tests
 
-### Unit Tests
-Unit testing is the act of running tests on individual components of code to ensure each part works as intended. These tests were done using JUnit & Mockito, which can be found in 'src/test/java/com/qa/animelist/unit/'. Here my unit tests can be found which test the large majority of the functions in my classes. While I only reached 75% line coverage, the 25% was largely made up by the auto-generated 'hashCode' & 'equals' classes.
+Unit testing is the act of running tests on individual components of code to ensure each part works as intended. These tests were done using JUnit & Mockito, which can be found in 'src/test/java/com/qa/animelist/unit/'. Here my unit tests can be found which test the large majority of the functions in my classes. While I only reached 62% line coverage, the 38% was largely made up by the auto-generated 'hashCode' & 'equals' classes.
 
 ## Example
 ```
